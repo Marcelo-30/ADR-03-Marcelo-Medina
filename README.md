@@ -79,7 +79,7 @@ También es una decisión adecuada para el alcance actual del proyecto, ya que p
 
 El siguiente diagrama Mermaid muestra cómo se aplica el estilo cliente-servidor con arquitectura en capas basada en MVC dentro de CatalogoAPP.
 
-![Diagrama del sistema](./imagenes/diagrama.png)
+![Diagrama del sistema](./imagen/diagrama.png)
 
 ---
 
