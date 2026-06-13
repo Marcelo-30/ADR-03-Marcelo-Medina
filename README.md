@@ -42,3 +42,34 @@ La organización en capas basada en MVC ayuda a separar responsabilidades. Las v
 Esta separación hace que sea más fácil agregar funcionalidades como filtros por categoría, carga de imágenes, gestión de inventario o edición de productos sin mezclar toda la lógica en un solo lugar.
 
 También es una decisión adecuada para el alcance actual del proyecto, ya que permite construir una primera versión funcional sin agregar complejidad innecesaria como microservicios, eventos distribuidos o funciones serverless.
+
+---
+
+### Alternativas consideradas
+
+| Alternativa        | Por qué la descarté                                                                                                                                                                                                                           |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microservicios     | Se descartó porque CatalogoAPP todavía es un proyecto pequeño. Dividirlo en varios servicios aumentaría la complejidad de despliegue, comunicación, pruebas y mantenimiento sin una necesidad real en esta etapa.                             |
+| Event-driven       | Se descartó porque el flujo principal del sistema es directo: el vendedor administra productos y el cliente consulta el catálogo. No se requiere una arquitectura basada en eventos, colas o comunicación asíncrona para la versión inicial.  |
+| Serverless         | Se descartó porque el proyecto necesita una estructura web clara con controladores, vistas y base de datos. Además, serverless agregaría dependencia de servicios externos y complicaría la explicación del sistema para el alcance de clase. |
+| Hexagonal          | Se descartó para esta versión porque, aunque mejora el aislamiento del dominio, puede agregar más interfaces, adaptadores y estructura de la necesaria. Para el alcance actual, MVC en capas es más simple de implementar y defender.         |
+| Monolito sin capas | Se descartó porque mezclar vistas, lógica y acceso a datos en una sola estructura haría más difícil mantener el sistema, agregar funciones y explicar la arquitectura.                                                                        |
+
+---
+
+## Consecuencias
+
+**✅ Lo que gano:**
+
+* **Consecuencia técnica:** el sistema queda organizado por responsabilidades, lo que facilita modificar una parte sin afectar directamente a las demás. Por ejemplo, se puede cambiar una vista sin modificar la lógica de acceso a datos.
+* **Consecuencia de mantenimiento:** será más fácil agregar nuevas funcionalidades como búsqueda de productos, filtros por talla o color, carga de imágenes y administración de inventario.
+* **Consecuencia sobre el proceso:** el equipo o el desarrollador puede trabajar siguiendo una estructura clara, ubicando cada archivo en la capa correspondiente.
+* **Consecuencia para la exposición:** el estilo cliente-servidor con MVC en capas es fácil de explicar mediante las vistas lógica, física, de despliegue y de procesos documentadas previamente.
+
+**⚠️ Lo que sacrifico o asumo:**
+
+* **Limitación técnica:** al ser una aplicación centralizada, si el servidor falla, los usuarios no podrían acceder al catálogo hasta que el servicio vuelva a estar disponible.
+* **Deuda o riesgo:** si el proyecto crece demasiado, podría ser necesario separar mejor la lógica de negocio o migrar algunas partes a una arquitectura más avanzada, como hexagonal o microservicios.
+* **Mayor disciplina de desarrollo:** aunque se use MVC, existe el riesgo de colocar demasiada lógica en los controladores si no se mantiene una separación clara de responsabilidades.
+* **Escalabilidad limitada al inicio:** esta arquitectura es suficiente para una primera versión, pero si muchos vendedores usan el sistema al mismo tiempo, se tendría que revisar el despliegue, la base de datos y el rendimiento.
+
