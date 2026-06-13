@@ -73,3 +73,26 @@ También es una decisión adecuada para el alcance actual del proyecto, ya que p
 * **Mayor disciplina de desarrollo:** aunque se use MVC, existe el riesgo de colocar demasiada lógica en los controladores si no se mantiene una separación clara de responsabilidades.
 * **Escalabilidad limitada al inicio:** esta arquitectura es suficiente para una primera versión, pero si muchos vendedores usan el sistema al mismo tiempo, se tendría que revisar el despliegue, la base de datos y el rendimiento.
 
+---
+
+## Diagrama
+
+El siguiente diagrama Mermaid muestra cómo se aplica el estilo cliente-servidor con arquitectura en capas basada en MVC dentro de CatalogoAPP.
+
+![Diagrama del sistema](./imagenes/diagrama.png)
+
+---
+
+## Conclusión
+
+La decisión de utilizar un estilo cliente-servidor con arquitectura en capas basada en MVC permite que CatalogoAPP tenga una estructura clara, funcional y adecuada para su alcance actual. Este estilo ayuda a separar la interfaz, el control de solicitudes, la lógica del catálogo y el acceso a datos, lo que facilita el desarrollo, mantenimiento y explicación del proyecto.
+
+Además, esta decisión se alinea con las vistas arquitectónicas documentadas en el ADR-02, ya que permite representar el sistema desde la vista lógica, física, de despliegue y de procesos de una manera coherente.
+
+---
+
+## Cláusula de uso de inteligencia artificial
+
+Para la elaboración de este documento se utilizó inteligencia artificial como herramienta de apoyo en la organización de ideas, redacción y mejora de la estructura del contenido.
+
+
